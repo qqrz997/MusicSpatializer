@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This file contains project properties used by the build. -->
+<Project>
+
+  <!-- Plugin Metadata -->
+  <PropertyGroup>
+    <PluginId>Music Spatializer</PluginId>
+    <PluginName>Music Spatializer</PluginName>
+    <Authors>SBoys3</Authors>
+    <Version>1.3.1</Version>
+    <GameVersion>1.40.8</GameVersion>
+    <Description>Makes the audio 3D when wearing headphones. Also in 360 maps the music will follow the notes origin.</Description>
+    <PluginIcon>MusicSpatializer.icon.png</PluginIcon>
+    <!--<ProjectSource></ProjectSource>-->
+    <!--<ProjectHome></ProjectHome>-->
+    <!--<DonateUrl></DonateUrl>-->
+  </PropertyGroup>
+
+  <!-- Plugin Dependencies -->
+  <ItemGroup>
+    <DependsOn Include="BSIPA" Version="^4.3.0"/>
+    <DependsOn Include="SiraUtil" Version="^3.1.0"/>
+    <DependsOn Include="BeatSaberMarkupLanguage" Version="^1.12.0"/>
+  </ItemGroup>
+
+  <PropertyGroup>
+    <BSMTProjectType>BSIPA</BSMTProjectType>
+    <GenerateManifest>true</GenerateManifest>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)' != 'Release'">
+    <DisableZipRelease>true</DisableZipRelease>
+  </PropertyGroup>
+
+</Project>
