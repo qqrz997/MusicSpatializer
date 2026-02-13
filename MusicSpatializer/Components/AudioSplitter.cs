@@ -2,52 +2,34 @@
 
 namespace MusicSpatializer.Components;
 
-public class AudioSplitter : MonoBehaviour
+internal class AudioSplitter : MonoBehaviour
 {
 
     public float[][] channelData = [];
     public bool[] beenUsed = [];
     public int iteration = 0;
     public bool ready = false;
-    AudioSource? source;
+
+    private AudioSource? source;
     //float lastTime = 0;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Update()
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (source == null)
+        if (!source)
         {
             source = gameObject.GetComponent<AudioSource>();
-            source.spatialBlend = 0;
-            source.reverbZoneMix = 0;
-            source.dopplerLevel = 0;
-            source.bypassEffects = false;
         }
-        else
-        {
-            source.spatialBlend = 0;
-            source.reverbZoneMix = 0;
-            source.dopplerLevel = 0;
-            source.bypassEffects = false;
-            /*if (source.time == 0)
-            {
-                source.time = lastTime;
-                source.Play();
-            }
-            lastTime = source.time;*/
-        }
+
+        source.spatialBlend = 0;
+        source.reverbZoneMix = 0;
+        source.dopplerLevel = 0;
+        source.bypassEffects = false;
     }
 
-    void OnAudioFilterRead(float[] data, int channels)
+    private void OnAudioFilterRead(float[] data, int channels)
     {
         int dataLen = data.Length / channels;
-        if (channelData?.Length != channels)
+        if (channelData.Length != channels)
         {
             channelData = new float[channels][];
             beenUsed = new bool[channels];
@@ -55,7 +37,7 @@ public class AudioSplitter : MonoBehaviour
         int c = 0;
         while (c < channels)
         {
-            if (channelData[c]?.Length != dataLen)
+            if (channelData[c].Length != dataLen)
             {
                 channelData[c] = new float[dataLen];
             }

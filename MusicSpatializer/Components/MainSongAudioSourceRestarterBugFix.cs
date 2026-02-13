@@ -3,7 +3,7 @@ namespace MusicSpatializer.Components;
 // todo: this code might not actually be necessary and needs testing again
 
 //this fixes a bug in the base game where the song AudioSource gets stopped by unity because it runs out of virtual channels due to too many hitsounds
-// public class MainSongAudioSourceRestarterBugFix : MonoBehaviour
+// internal class MainSongAudioSourceRestarterBugFix : MonoBehaviour
 // {
 //     private AudioTimeSyncController audioTimeSyncController;
 //     private AudioSource source;
