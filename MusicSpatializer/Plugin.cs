@@ -20,5 +20,6 @@ internal class Plugin
         zenjector.Install<AppInstaller>(Location.App, config.Generated<PluginConfig>());
         zenjector.Install<MenuInstaller>(Location.Menu);
         zenjector.Install<PlayerInstaller>(Location.Player);
+        zenjector.Install<MultiplayerInstaller>(Location.MultiPlayer);
     }
 }

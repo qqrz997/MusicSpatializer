@@ -2,21 +2,9 @@ using UnityEngine;
 
 namespace MusicSpatializer.Components;
 
-public class Silencer : MonoBehaviour
+internal class Silencer : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    void OnAudioFilterRead(float[] data, int channels)
+    private void OnAudioFilterRead(float[] data, int channels)
     {
         int dataLen = data.Length / channels;
 

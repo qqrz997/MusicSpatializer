@@ -10,6 +10,7 @@ internal class MenuInstaller : Installer
     {
         Container.BindInterfacesTo<SettingsMenuManager>().AsSingle();
         Container.Bind<MainSettings>().AsSingle();
-        Container.BindInterfacesTo<SpatializerInitializer>().AsSingle();
+        
+        Container.BindInterfacesTo<SpatializerMenuInitializer>().AsSingle();
     }
 }

@@ -22,15 +22,15 @@ internal class AudioReader : MonoBehaviour
     private AudioSource? source;
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if (source == null)
+        if (!source)
         {
             source = gameObject.GetComponent<AudioSource>();
             return;
         }
 
-        if (source.isPlaying)
+        if (source!.isPlaying)
         {
             return;
         }
@@ -43,8 +43,7 @@ internal class AudioReader : MonoBehaviour
     }
 
 
-
-    void OnAudioFilterRead(float[] data, int channels)
+    private void OnAudioFilterRead(float[] data, int channels)
     {
         //Plugin.Log("reading audio {0} channels", channels);
 
