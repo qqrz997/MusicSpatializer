@@ -34,30 +34,24 @@ internal class AudioSplitter : MonoBehaviour
             channelData = new float[channels][];
             beenUsed = new bool[channels];
         }
-        int c = 0;
-        while (c < channels)
+
+        for (int channelIdx = 0; channelIdx < channels; channelIdx++)
         {
-            if (channelData[c].Length != dataLen)
-            {
-                channelData[c] = new float[dataLen];
-            }
-            beenUsed[c] = false;
-            c++;
+            var channel = channelData[channelIdx];
+            // ReSharper disable once ConditionalAccessQualifierIsNonNullableAccordingToAPIContract
+            if (channel?.Length != dataLen) 
+                channelData[channelIdx] = new float[dataLen];
+            beenUsed[channelIdx] = false;
         }
         iteration++;
-
-        int n = 0;
-        while (n < dataLen)
+        
+        for (int n = 0; n < dataLen; n++)
         {
-
-            int i = 0;
-            while (i < channels)
+            for (int i = 0; i < channels; i++)
             {
                 channelData[i][n] = data[n * channels + i];
                 data[n * channels + i] = 0;
-                i++;
             }
-            n++;
         }
         ready = true;
     }
