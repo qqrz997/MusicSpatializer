@@ -7,7 +7,7 @@
     <PluginId>Music Spatializer</PluginId>
     <PluginName>Music Spatializer</PluginName>
     <Authors>SBoys3</Authors>
-    <Version>1.3.2</Version>
+    <Version>1.3.3</Version>
     <GameVersion>1.42.0</GameVersion>
     <Description>Makes the audio 3D when wearing headphones. Also in 360 maps the music will follow the notes origin.</Description>
     <PluginIcon>MusicSpatializer.icon.png</PluginIcon>
